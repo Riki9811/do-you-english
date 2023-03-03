@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+:root {
+	color-scheme: light dark;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+
+	// OG colors for SVGs and interface
+	// --og-svg-primary: #183153;
+	// --og-svg-secondary: #a2acb9;
+	// --og-accent: hsl(274, 83%, 60%);
+	// --og-accent-light: hsl(277, 77%, 90%);
+
+	--font-serif: "Roboto Slab", "Times New Roman", serif;
+	--font-sans-serif: "Roboto", Arial, sans-serif;
+	--font-mono: "Roboto Mono", "Courier New", monospace;
+
+	--accent: hsl(221, 83%, 60%);
+	--accent-light: hsl(221, 93%, 84%);
+	--white: #fefefe;
+	--grey-light: #f4f4f4;
+	--grey: #757575;
+	--black: #2c2c2c;
+
+	--svg-primary: var(--accent);
+	--svg-secondary: var(--accent-light);
+}
+
+body {
+	--text-col: var(--black);
+	--text-light-col: var(--grey);
+    --text-accent-col: var(--accent);
+
+    --background-col: var(--white);
+    --background-alt-col: var(--grey-light);
+
+	--icon-color: var(--grey);
+	--icon-accent-color: var(--accent);
+
+	font-family: var(--font-sans-serif);
+    color: var(--text-col);
+    background: var(--background-col);
+}
+
+body.dark {
+	--text-col: var(--white);
+	--text-light-col: var(--grey-light);
+
+    --background-col: var(--black);
+    --background-alt-col: var(--grey);
+
+	--icon-color: var(--grey);
+	--icon-accent-color: var(--accent);
+}
