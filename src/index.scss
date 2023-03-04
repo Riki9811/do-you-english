@@ -39,21 +39,21 @@ body {
     --background-col: var(--white);
     --background-alt-col: var(--grey-light);
 
-	--icon-color: var(--grey);
-	--icon-accent-color: var(--accent);
+	--icon-col: var(--grey);
+	--icon-accent-col: var(--accent);
 
 	font-family: var(--font-sans-serif);
     color: var(--text-col);
     background: var(--background-col);
 }
 
-body.dark {
+body.dark-mode {
 	--text-col: var(--white);
 	--text-light-col: var(--grey-light);
 
     --background-col: var(--black);
     --background-alt-col: var(--grey);
 
-	--icon-color: var(--grey);
-	--icon-accent-color: var(--accent);
+	--icon-col: var(--grey);
+	--icon-accent-col: var(--accent);
 }

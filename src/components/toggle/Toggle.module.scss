@@ -1,0 +1,45 @@
+.header {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
+.logo {
+	height: 2.5em;
+}
+
+.toggle {
+    --toggle-width: 2em;
+    --toggle-height: 1em;
+    --dot-margin: 0.15em;
+    --dot-size: calc(var(--toggle-height) - var(--dot-margin) * 2);
+    --dot-active-offset: calc(var(--toggle-width) - (var(--dot-margin) * 2) - var(--dot-size));
+	
+    position: relative;
+	height: var(--toggle-height);
+	width: var(--toggle-width);
+	background-color: var(--icon-col);
+	border-radius: 100em;
+	transition: background-color 500ms ease;
+}
+
+.toggle.active {
+	background-color: var(--icon-accent-col);
+}
+
+.toggle::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: var(--dot-margin);
+	width: var(--dot-size);
+	height: var(--dot-size);
+	background-color: var(--white);
+	border-radius: 50%;
+    transition: transform 500ms ease;
+}
+
+.toggle.active::before {
+	transform: translateX(var(--dot-active-offset));
+}

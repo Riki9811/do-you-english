@@ -1,4 +1,30 @@
+.header {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
 .logo {
-	height: 6em;
-	padding: 1.5em;
+	height: 2.5em;
+}
+
+.title {
+	flex-grow: 1;
+}
+
+.separator {
+	height: 1.5em;
+	width: 0.1em;
+	background: var(--background-alt-col);
+	margin-inline: 0.5em;
+}
+
+.theme-icon,
+.theme-icon-moon {
+	width: 1.5em;
+	height: 1.5em;
+}
+
+.theme-icon-moon {
+    fill: var(--icon-accent-col);
 }
