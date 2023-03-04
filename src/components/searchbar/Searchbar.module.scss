@@ -1,0 +1,38 @@
+.searchbar {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background: var(--background-alt-col);
+	margin-inline: 1em;
+	padding: 0.75em 1.2em;
+	border-radius: 1000em;
+	cursor: text;
+	font-size: 1.5em;
+}
+
+.search-input {
+	background: none;
+	flex-grow: 1;
+}
+
+.search-input:focus-visible {
+	outline: none;
+}
+
+.search-icon {
+	cursor: pointer;
+	fill: var(--icon-accent-col);
+}
+
+::placeholder {
+	color: inherit;
+	opacity: 0.5;
+}
+
+:-ms-input-placeholder {
+	color: inherit;
+}
+
+::-ms-input-placeholder {
+	color: inherit;
+}
