@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import useEventListener from "./useEventListener";
 
 /**
- * Incapsulates with a hook the default javascript behaviour of `addEventListener()`.
- * The hook sets up the function `callBack` so that it will be called whenever the
- * specified `eventType` is delivered to the `target`.
+ * Incapsulates with a hook the behaviour of cee media queries.
+ * The hook returns a stateful boolean indicating whether the qury is
+ * matched or not. The boolean will automatically update when the query changes result.
  * 
  * @returns A stateful value indicating whether the query is matched or not.
  */

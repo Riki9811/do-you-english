@@ -1,1 +1,12 @@
+.app {
+	display: flex;
+	flex-direction: column;
+	padding-top: 1em;
+    padding-inline: 2em; // Use little padding by default
+}
 
+@media (min-width: 831px) { // If screen is at least 830 wide
+	.app {
+		padding-inline: 20%; // Use larger padding
+	}
+}
