@@ -1,12 +1,12 @@
 import { useCallback, useState } from "react";
 import Header from "./components/header/Header";
 import Searchbar from "./components/searchbar/Searchbar";
-import WordDefinition from "./components/word-definition/WordDefinition";
+import WordInfo from "./components/word-info/WordInfo";
 import searchDictionary from "./api/searchDictionary";
-import DictionaryWord from "./types/DictionaryWord";
+import WordDefinition from "./types/WordDefinition";
 import styles from "./App.module.scss";
 
-const DEFAULT_WORD: DictionaryWord = {
+const DEFAULT_WORD: WordDefinition = {
 	word: "test",
 	phonetic: "/test/",
 	phonetics: [
@@ -125,23 +125,23 @@ const DEFAULT_WORD: DictionaryWord = {
 
 export default function App() {
 	const [word, setWord] = useState<string>("");
-	const [dictWord, setDictWord] = useState<DictionaryWord>(DEFAULT_WORD);
-    const [error, setError] = useState<boolean>(false);
+	const [definition, setDefinition] = useState<WordDefinition>(DEFAULT_WORD);
+    const [errString, setErrString] = useState<string>("");
 
 	const searchWord = useCallback(async () => {
 		if (!word) return;
-		setError(false);
+		setErrString("");
 		// const abort = new AbortController();
-		const result: DictionaryWord = await searchDictionary(word);
-		if (result) setDictWord(result);
-		else setError(true);
+		const result: WordDefinition = await searchDictionary(word);
+		if (result) setDefinition(result);
+		else setErrString(`Unknown error on word: ${word}`);
 	}, [word]);
 
 	return (
 		<div className={styles.app}>
 			<Header />
 			<Searchbar word={word} setWord={setWord} placeholder="Search a word..." search={searchWord} />
-			<WordDefinition />
+			<WordInfo info={definition} error={errString} />
 		</div>
 	);
 }

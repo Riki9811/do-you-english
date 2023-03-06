@@ -1,24 +1,24 @@
-export default interface DictionaryWord {
+export default interface WordDefinition {
 	word: string;
 	phonetic?: string;
-	phonetics: WordPhonetic[];
-	meanings: WordMeaning[];
+	phonetics: Phonetics[];
+	meanings: Meaning[];
 	sourceUrls: string[];
 }
 
-export interface WordPhonetic {
+export interface Phonetics {
 	text?: string;
 	audio?: string;
 }
 
-export interface WordMeaning {
+export interface Meaning {
     partOfSpeech: string;
-    definitions: WordDefinition[];
+    definitions: Definition[];
     synonyms: string[];
     antonyms: string[];
 }
 
-export interface WordDefinition {
+export interface Definition {
     definition: string;
     example?: string;
     synonyms: string[];

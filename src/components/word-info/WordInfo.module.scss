@@ -1,0 +1,108 @@
+.word-info,
+.word-meaning {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+}
+
+// #region PRONUNCIATION
+.word-pronunciation {
+	display: grid;
+	justify-content: space-between;
+	align-items: center;
+	grid-template-areas:
+		"word btn"
+		"pronounce btn";
+}
+
+.word-pronunciation > h1 {
+	grid-area: word;
+}
+
+.word-pronunciation > h2 {
+	font-family: var(--font-sans-serif);
+	grid-area: pronounce;
+	color: var(--text-accent-col);
+}
+
+.word-pronunciation > button {
+	grid-area: btn;
+	display: grid;
+	place-content: center;
+	width: 5em;
+	height: 5em;
+}
+
+.play-icon {
+	width: 2.25em;
+	height: 2.25em;
+	margin-left: 0.2em;
+}
+
+.stop-icon {
+	width: 2.25em;
+	height: 2.25em;
+}
+// #endregion
+
+// #region MEANING
+.horizontal {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 2em;
+}
+
+.spacer {
+	margin-top: 3px;
+	height: 3px;
+	border-radius: 1000em;
+	background: var(--background-alt-col);
+	flex-grow: 1;
+}
+
+.definitions {
+	color: var(--text-light-col);
+}
+
+.definitions > ul {
+	color: var(--text-col);
+	padding-left: 2em;
+	margin-top: 0.5em;
+}
+
+.definitions > ul > li {
+	display: flex;
+	flex-direction: column;
+    gap: 0.5em;
+}
+
+.definitions > ul > li:not(:last-child) {
+	margin-bottom: 1em;
+}
+
+.definitions > ul > li::before {
+	content: "\2022";
+	position: absolute;
+	color: var(--text-accent-col);
+	font-weight: bold;
+	display: inline-block;
+	width: 1em;
+	margin-left: -1em;
+}
+
+.definitions > ul > li > span {
+    color: var(--text-light-col);
+}
+
+.synonyms,
+.antonyms {
+	color: var(--text-light-col);
+}
+
+.synonyms > span,
+.antonyms > span {
+	font-weight: bold;
+	color: var(--text-accent-col);
+}
+// #endregion

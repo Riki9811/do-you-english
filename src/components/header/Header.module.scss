@@ -12,6 +12,10 @@
 	flex-grow: 1;
 }
 
+.spacer {
+    display: none;
+}
+
 .separator {
 	height: 1.5em;
 	width: 0.1em;
@@ -27,4 +31,15 @@
 
 .theme-icon-moon {
 	fill: var(--icon-accent-col);
+}
+
+@media (max-width: 560px) {
+    .title {
+        display: none;
+    }
+
+    .spacer {
+        display: block;
+        flex-grow: 1;
+    }
 }
