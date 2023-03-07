@@ -58,13 +58,13 @@ input {
 	--font-sans-serif: "Roboto", Arial, sans-serif;
 	--font-mono: "Roboto Mono", "Courier New", monospace;
 
-	--accent: hsl(221, 83%, 60%);
+	--accent: hsl(221, 82%, 54%);
 	--accent-light: hsl(221, 93%, 84%);
 	--accent-dark: hsl(221, 52%, 32%);
 	--white: #fefefe;
-	--grey-light: #f4f4f4;
+	--grey-light: #eeeeee;
 	--grey: #757575;
-	--black: #2c2c2c;
+	--black: #1a1a1a;
 
 	--svg-primary: var(--accent);
 	--svg-secondary: var(--accent-light);
@@ -87,8 +87,9 @@ body {
 }
 
 body.dark-mode {
+	--accent: hsl(221, 90%, 62%);
+
 	--text-col: var(--white);
-	--text-light-col: var(--grey-light);
 
 	--background-col: var(--black);
 	--background-alt-col: var(--grey);
@@ -155,4 +156,12 @@ button:active::before {
 
 button > * {
 	z-index: 1;
+}
+
+*::selection {
+    background-color: var(--accent-light);
+}
+
+.dark-mode ::selection {
+    background-color: var(--accent-dark);
 }

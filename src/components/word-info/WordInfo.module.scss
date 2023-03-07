@@ -2,7 +2,11 @@
 .word-meaning {
 	display: flex;
 	flex-direction: column;
-	gap: 2em;
+	gap: 1em;
+}
+
+.word-info {
+	gap: 3em;
 }
 
 // #region PRONUNCIATION
@@ -55,7 +59,7 @@
 
 .spacer {
 	margin-top: 3px;
-	height: 3px;
+	height: 0.2em;
 	border-radius: 1000em;
 	background: var(--background-alt-col);
 	flex-grow: 1;
@@ -74,7 +78,7 @@
 .definitions > ul > li {
 	display: flex;
 	flex-direction: column;
-    gap: 0.5em;
+	gap: 0.5em;
 }
 
 .definitions > ul > li:not(:last-child) {
@@ -92,17 +96,58 @@
 }
 
 .definitions > ul > li > span {
-    color: var(--text-light-col);
-}
-
-.synonyms,
-.antonyms {
 	color: var(--text-light-col);
 }
 
-.synonyms > span,
-.antonyms > span {
+.array {
+	color: var(--text-light-col);
+}
+
+.array > span {
 	font-weight: bold;
 	color: var(--text-accent-col);
 }
 // #endregion
+
+.sources {
+	margin-bottom: 2em;
+	display: grid;
+	grid-template-columns: auto;
+}
+
+.sources > .spacer {
+	margin-bottom: 1em;
+}
+
+.sources > p {
+	color: var(--text-light-col);
+}
+
+.sources > span {
+	font-weight: bold;
+	display: flex;
+	flex-direction: column;
+}
+
+.sources > span > a {
+	color: var(--text-col);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1em;
+}
+
+.sources > span > a:active {
+	color: var(--text-col);
+}
+
+@media (width > 565px) {
+	.sources {
+		grid-template-columns: min-content auto;
+        column-gap: 1.5em;
+	}
+
+    .sources > .spacer {
+        grid-column: span 2;
+    }
+}

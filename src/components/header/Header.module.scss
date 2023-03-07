@@ -17,10 +17,11 @@
 }
 
 .separator {
-	height: 1.5em;
-	width: 0.1em;
+	height: 2em;
+	width: 0.2em;
 	background: var(--background-alt-col);
 	margin-inline: 0.5em;
+    border-radius: 1000em;
 }
 
 .theme-icon,
@@ -33,7 +34,7 @@
 	fill: var(--icon-accent-col);
 }
 
-@media (max-width: 560px) {
+@media (max-width: 565px) {
     .title {
         display: none;
     }

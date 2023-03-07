@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { PlayFill, StopFill } from "react-bootstrap-icons";
+import { BoxArrowUpRight, PlayFill, StopFill } from "react-bootstrap-icons";
 import useEventListener from "../../hooks/useEventListener";
 import WordDefinition from "../../types/WordDefinition";
 import styles from "./WordInfo.module.scss";
@@ -28,9 +28,27 @@ export default function WordInfo({ info: rawInfo, error }: WordInfoProps) {
 		}
 	}
 
-	function renderMeaning(meaning: CleanMeaning): JSX.Element {
+	function renderPronunciation(word: string, pronunciation: string, audio?: HTMLAudioElement) {
 		return (
-			<div className={styles["word-meaning"]}>
+			<div className={styles["word-pronunciation"]}>
+				<h1>{word}</h1>
+				<h2>{pronunciation}</h2>
+				{audio && (
+					<button onClick={toggleAudio}>
+						{isPlaying ? (
+							<StopFill className={styles["stop-icon"]} />
+						) : (
+							<PlayFill className={styles["play-icon"]} />
+						)}
+					</button>
+				)}
+			</div>
+		);
+	}
+
+	function renderMeaning(meaning: CleanMeaning, index: number): JSX.Element {
+		return (
+			<div key={index} className={styles["word-meaning"]}>
 				<div className={styles.horizontal}>
 					<h3>{meaning.partOfSpeech}</h3>
 					<span className={styles.spacer} />
@@ -39,25 +57,42 @@ export default function WordInfo({ info: rawInfo, error }: WordInfoProps) {
 				<div className={styles.definitions}>
 					Meaning:
 					<ul>
-						{meaning.definitions.map((def) => (
-							<li>
+						{meaning.definitions.map((def, index) => (
+							<li key={index}>
 								{def.definition} {def.example ? <span>"{def.example}"</span> : null}
 							</li>
 						))}
 					</ul>
 				</div>
 
-				{meaning.synonyms.length > 0 && (
-					<div className={styles.synonyms}>
-						Synonyms: <span>{meaning.synonyms.join(", ")}</span>
-					</div>
-				)}
+				{renderWordArray(meaning.synonyms, "Synonyms")}
 
-				{meaning.antonyms.length > 0 && (
-					<div className={styles.antonyms}>
-						Antonyms: <span>{meaning.antonyms.join(", ")}</span>
-					</div>
-				)}
+				{renderWordArray(meaning.antonyms, "Antonyms")}
+			</div>
+		);
+	}
+
+	function renderWordArray(array: string[], caption: string) {
+		if (array.length === 0) return;
+		return (
+			<div className={styles.array}>
+				{caption}: <span>{array.join(", ")}</span>
+			</div>
+		);
+	}
+
+	function renderUrlArray(urls: string[], caption: string) {
+		return (
+			<div className={styles.sources}>
+				<span className={styles.spacer} />
+				<p>{caption}</p>
+				<span>
+					{urls.map((url, index) => (
+						<a key={index} href={url}>
+							{url} <BoxArrowUpRight />
+						</a>
+					))}
+				</span>
 			</div>
 		);
 	}
@@ -68,20 +103,9 @@ export default function WordInfo({ info: rawInfo, error }: WordInfoProps) {
 	// Show the info
 	return (
 		<div className={styles["word-info"]}>
-			<div className={styles["word-pronunciation"]}>
-				<h1>{info.word}</h1>
-				<h2>{info.pronunciation}</h2>
-				{info.audio && (
-					<button onClick={toggleAudio}>
-						{isPlaying ? (
-							<StopFill className={styles["stop-icon"]} />
-						) : (
-							<PlayFill className={styles["play-icon"]} />
-						)}
-					</button>
-				)}
-			</div>
-			{info.meanings.map((meaning) => renderMeaning(meaning))}
+			{renderPronunciation(info.word, info.pronunciation, info.audio)}
+			{info.meanings.map((meaning, index) => renderMeaning(meaning, index))}
+			{renderUrlArray(info.sourceUrls, info.sourceUrls.length > 1 ? "Sources: " : "Source: ")}
 		</div>
 	);
 }
@@ -92,6 +116,7 @@ interface CleanInfo {
 	pronunciation: string;
 	audio?: HTMLAudioElement;
 	meanings: CleanMeaning[];
+	sourceUrls: string[];
 }
 
 interface CleanMeaning {
@@ -111,6 +136,7 @@ function rawInfoCleaner(rawInfo?: WordDefinition): CleanInfo | undefined {
 	var pronunciation = rawInfo.phonetic ? rawInfo.phonetic : "";
 	var audio;
 	var meanings: CleanMeaning[] = [];
+	var sourceUrls = [...rawInfo.sourceUrls];
 
 	for (const phonetics of rawInfo.phonetics) {
 		if (!pronunciation && phonetics.text) pronunciation = phonetics.text;
@@ -125,6 +151,6 @@ function rawInfoCleaner(rawInfo?: WordDefinition): CleanInfo | undefined {
 		meanings.push(newMeaning);
 	}
 
-	return { word, pronunciation, audio, meanings };
+	return { word, pronunciation, audio, meanings, sourceUrls };
 }
 //#endregion
