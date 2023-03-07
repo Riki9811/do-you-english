@@ -9,8 +9,12 @@
 	font-size: 1.25em;
 }
 
-.searchbar > button {
-    background: none;
+.disabled {
+    cursor: not-allowed;
+}
+
+.disabled * {
+    cursor: not-allowed;
 }
 
 .search-input {
@@ -23,8 +27,10 @@
 }
 
 .search-icon {
-    width:1.5em;
-    height: 1.5em;
+    cursor: pointer;
+	fill: var(--icon-accent-col);
+	width: 1.2em;
+	height: 1.2em;
 }
 
 ::placeholder {

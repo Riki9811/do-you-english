@@ -1,4 +1,4 @@
-export default interface WordDefinition {
+export interface WordDefinition {
 	word: string;
 	phonetic?: string;
 	phonetics: Phonetics[];
@@ -23,4 +23,10 @@ export interface Definition {
     example?: string;
     synonyms: string[];
     antonyms: string[];
+}
+
+export interface WordNotFoundInfo {
+	title: string;
+    message: string;
+    resolution: string;
 }

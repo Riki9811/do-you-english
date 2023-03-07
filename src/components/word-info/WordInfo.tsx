@@ -1,15 +1,16 @@
 import { useMemo, useState } from "react";
 import { BoxArrowUpRight, PlayFill, StopFill } from "react-bootstrap-icons";
 import useEventListener from "../../hooks/useEventListener";
-import WordDefinition from "../../types/WordDefinition";
+import { WordDefinition } from "../../types/WordDefinition";
 import styles from "./WordInfo.module.scss";
 
 interface WordInfoProps {
 	info?: WordDefinition;
 	error: string;
+	searchWord: (word: string) => void;
 }
 
-export default function WordInfo({ info: rawInfo, error }: WordInfoProps) {
+export default function WordInfo({ info: rawInfo, error, searchWord }: WordInfoProps) {
 	const [isPlaying, setIsPlaying] = useState<boolean>(false);
 	const info = useMemo(() => rawInfoCleaner(rawInfo), [rawInfo]);
 
@@ -73,10 +74,21 @@ export default function WordInfo({ info: rawInfo, error }: WordInfoProps) {
 	}
 
 	function renderWordArray(array: string[], caption: string) {
+		const wordLinks: JSX.Element[] = [];
+		array.forEach((element, index) => {
+			const isNotLast = index < array.length - 1;
+			wordLinks.push(
+				<p key={index} onClick={() => searchWord(element)}>
+					{element}
+					{isNotLast ? ", " : ""}
+				</p>
+			);
+		});
+
 		if (array.length === 0) return;
 		return (
 			<div className={styles.array}>
-				{caption}: <span>{array.join(", ")}</span>
+				{caption}: <span>{wordLinks}</span>
 			</div>
 		);
 	}
@@ -105,7 +117,7 @@ export default function WordInfo({ info: rawInfo, error }: WordInfoProps) {
 		<div className={styles["word-info"]}>
 			{renderPronunciation(info.word, info.pronunciation, info.audio)}
 			{info.meanings.map((meaning, index) => renderMeaning(meaning, index))}
-			{renderUrlArray(info.sourceUrls, info.sourceUrls.length > 1 ? "Sources: " : "Source: ")}
+			{renderUrlArray(info.sourceUrls, info.sourceUrls.length > 1 ? "Sources" : "Source")}
 		</div>
 	);
 }

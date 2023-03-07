@@ -101,14 +101,25 @@
 
 .array {
 	color: var(--text-light-col);
+    display: grid;
+    grid-template-columns: min-content auto;
+    gap: 0.5em;
 }
 
 .array > span {
 	font-weight: bold;
 	color: var(--text-accent-col);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2em;
+}
+
+.array > span > p {
+	cursor: pointer;
 }
 // #endregion
 
+// #region SOURCES
 .sources {
 	margin-bottom: 2em;
 	display: grid;
@@ -151,3 +162,4 @@
         grid-column: span 2;
     }
 }
+// #endregion

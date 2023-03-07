@@ -4,5 +4,5 @@ export default async function searchDictionary(word: string) {
 	const url = `${BASE_URL}/${word}`;
 	return fetch(url)
 		.then((response) => response.json())
-		.then((json) => json[0]);
+		.then((json) => (json.title ? json : json[0]));
 }

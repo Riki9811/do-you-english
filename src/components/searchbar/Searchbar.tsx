@@ -1,16 +1,18 @@
 import { Dispatch, FormEvent, MouseEvent, SetStateAction, useRef } from "react";
 import { Search } from "react-bootstrap-icons";
+import Spinner from "../spinner/Spinner";
 import styles from "./Searchbar.module.scss";
 
 interface SearchbarProps {
 	placeholder?: string;
+	isLoading: boolean;
 	word: string;
 	setWord: Dispatch<SetStateAction<string>>;
 	search: Function;
 }
 
 export default function Searchbar(props: SearchbarProps) {
-	const { placeholder, word, setWord, search } = props;
+	const { placeholder, isLoading, word, setWord, search } = props;
 	const inputRef = useRef<HTMLInputElement>(null);
 	const formRef = useRef(null);
 
@@ -22,12 +24,17 @@ export default function Searchbar(props: SearchbarProps) {
 		e.preventDefault();
 		if (word) {
 			search();
-            inputRef.current?.blur();
+			inputRef.current?.blur();
 		}
 	}
 
 	return (
-		<form ref={formRef} className={styles.searchbar} onClick={handleClick} onSubmit={submitSearh}>
+		<form
+			ref={formRef}
+			className={`${styles.searchbar} ${isLoading && styles.disabled}`}
+			onClick={handleClick}
+			onSubmit={submitSearh}
+		>
 			<input
 				ref={inputRef}
 				type="text"
@@ -35,8 +42,9 @@ export default function Searchbar(props: SearchbarProps) {
 				onChange={(e) => setWord(e.target.value)}
 				placeholder={placeholder}
 				className={styles["search-input"]}
+				disabled={isLoading}
 			/>
-			<Search className={styles["search-icon"]} onClick={submitSearh} />
+			{isLoading ? <Spinner /> : <Search className={styles["search-icon"]} onClick={submitSearh} />}
 		</form>
 	);
 }
