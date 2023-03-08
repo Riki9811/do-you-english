@@ -50,6 +50,10 @@
 // #endregion
 
 // #region MEANING
+.word-meaning h3 {
+    font-style: italic;
+}
+
 .horizontal {
 	display: flex;
 	flex-direction: row;
@@ -97,6 +101,7 @@
 
 .definitions > ul > li > span {
 	color: var(--text-light-col);
+    font-style: italic;
 }
 
 .array {

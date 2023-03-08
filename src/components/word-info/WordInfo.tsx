@@ -117,7 +117,7 @@ export default function WordInfo({ info: rawInfo, error, searchWord }: WordInfoP
 		<div className={styles["word-info"]}>
 			{renderPronunciation(info.word, info.pronunciation, info.audio)}
 			{info.meanings.map((meaning, index) => renderMeaning(meaning, index))}
-			{renderUrlArray(info.sourceUrls, info.sourceUrls.length > 1 ? "Sources" : "Source")}
+			{renderUrlArray(info.sourceUrls, info.sourceUrls.length > 1 ? "Sources:" : "Source:")}
 		</div>
 	);
 }

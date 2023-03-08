@@ -62,7 +62,8 @@ input {
 	--accent-light: hsl(221, 93%, 84%);
 	--accent-dark: hsl(221, 52%, 32%);
 	--white: #fefefe;
-	--grey-light: #eeeeee;
+	--grey-lighter: #eeeeee;
+	--grey-light: #c0c0c0;
 	--grey: #757575;
 	--black: #1a1a1a;
 
@@ -76,7 +77,7 @@ body {
 	--text-accent-col: var(--accent);
 
 	--background-col: var(--white);
-	--background-alt-col: var(--grey-light);
+	--background-alt-col: var(--grey-lighter);
 
 	--icon-col: var(--grey);
 	--icon-accent-col: var(--accent);
@@ -90,6 +91,7 @@ body.dark-mode {
 	--accent: hsl(221, 90%, 62%);
 
 	--text-col: var(--white);
+	--text-light-col: var(--grey-light);
 
 	--background-col: var(--black);
 	--background-alt-col: var(--grey);
