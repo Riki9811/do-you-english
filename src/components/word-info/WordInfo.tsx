@@ -101,7 +101,7 @@ export default function WordInfo({ info: rawInfo, error, searchWord }: WordInfoP
 				<span>
 					{urls.map((url, index) => (
 						<a key={index} href={url}>
-							{url} <BoxArrowUpRight />
+							{url.replace("https://", "").replace("en.", "")} <BoxArrowUpRight />
 						</a>
 					))}
 				</span>

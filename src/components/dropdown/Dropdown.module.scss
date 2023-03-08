@@ -1,32 +1,35 @@
 .dropdown {
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
+	position: relative;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
 }
 
 .options {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    top: calc(100% + 0.5em);
-    left: 50%;
-    background: var(--background-alt-col);
-    transform: translateX(-50%);
-    border-radius: 0.5em;
-    overflow: hidden;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	top: calc(100% + 0.5em);
+	left: 50%;
+	background: var(--background-alt-col);
+	transform: translateX(-50%);
+	border-radius: 0.5em;
+	box-shadow: 0.3em 0.4em 1em 0em rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+	z-index: 100;
 }
 
 .option {
-    white-space: nowrap;
-    padding: 0.25em 0.5em;
+	white-space: nowrap;
+	padding: 0.25em 0.5em;
 }
 
 .option.highlight {
-    background: var(--accent);
+	background: var(--accent);
+	color: var(--white);
 }
 
 .chevron {
-    fill: var(--icon-accent-col);
+	fill: var(--icon-accent-col);
 }

@@ -6,12 +6,14 @@
     border-radius: 1em 1em 0 0;
     display: grid;
     grid-template-columns: min-content auto min-content auto;
+    align-items: center;
     column-gap: 1em;
 }
 
 .complex-link {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 0.5em;
 }
 
@@ -26,4 +28,13 @@
 .github-logo {
 	height: 1.5em;
 	width: 1.5em;
+}
+
+@media (width <= 790px) {
+    .footer {
+        grid-template-columns: min-content auto;
+        row-gap: 0.3em;
+        margin: auto 0 0;
+        font-size: 90%;
+    }
 }

@@ -151,6 +151,7 @@
 	flex-direction: row;
 	align-items: center;
 	gap: 1em;
+    overflow-wrap: anywhere;
 }
 
 .sources > span > a:active {

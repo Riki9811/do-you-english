@@ -42,7 +42,7 @@ export default function Dropdown() {
 	}
 
 	function onPreferenceSelect(index?: number) {
-		if (index) setFontPreference(options[index]);
+		if (index != undefined) setFontPreference(options[index]);
 		else setFontPreference(options[highlightIndex]);
 	}
 
