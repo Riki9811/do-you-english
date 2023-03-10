@@ -51,7 +51,7 @@
 
 // #region MEANING
 .word-meaning h3 {
-    font-style: italic;
+	font-style: italic;
 }
 
 .horizontal {
@@ -101,22 +101,22 @@
 
 .definitions > ul > li > span {
 	color: var(--text-light-col);
-    font-style: italic;
+	font-style: italic;
 }
 
 .array {
 	color: var(--text-light-col);
-    display: grid;
-    grid-template-columns: min-content auto;
-    gap: 0.5em;
+	display: grid;
+	grid-template-columns: min-content auto;
+	gap: 0.5em;
 }
 
 .array > span {
 	font-weight: bold;
 	color: var(--text-accent-col);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.2em;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.2em;
 }
 
 .array > span > p {
@@ -143,6 +143,7 @@
 	font-weight: bold;
 	display: flex;
 	flex-direction: column;
+	padding-left: 2em;
 }
 
 .sources > span > a {
@@ -151,21 +152,26 @@
 	flex-direction: row;
 	align-items: center;
 	gap: 1em;
-    overflow-wrap: anywhere;
+	overflow-wrap: anywhere;
 }
 
 .sources > span > a:active {
 	color: var(--text-col);
 }
 
-@media (width > 565px) {
+// width > 565px
+@media only screen and (min-width: 35.3125em) {
 	.sources {
 		grid-template-columns: min-content auto;
-        column-gap: 1.5em;
+		column-gap: 1.5em;
 	}
 
-    .sources > .spacer {
-        grid-column: span 2;
-    }
+	.sources > .spacer {
+		grid-column: span 2;
+	}
+
+	.sources > span {
+		padding-left: unset;
+	}
 }
 // #endregion

@@ -24,9 +24,3 @@ export interface Definition {
     synonyms: string[];
     antonyms: string[];
 }
-
-export interface WordNotFoundInfo {
-	title: string;
-    message: string;
-    resolution: string;
-}

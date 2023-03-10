@@ -7,8 +7,9 @@
 	min-height: 100dvh;
 }
 
-@media (min-width: 831px) {
-	// If screen is at least 830 wide
+// width > 831px
+@media only screen and (min-width: 51.9375em) {
+	// If screen is at least 831 wide
 	.app {
 		padding-inline: 20%; // Use larger padding
 	}

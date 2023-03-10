@@ -13,7 +13,7 @@
 }
 
 .spacer {
-    display: none;
+	display: none;
 }
 
 .separator {
@@ -21,7 +21,7 @@
 	width: 0.2em;
 	background: var(--background-alt-col);
 	margin-inline: 0.5em;
-    border-radius: 1000em;
+	border-radius: 1000em;
 }
 
 .theme-icon,
@@ -34,13 +34,14 @@
 	fill: var(--icon-accent-col);
 }
 
-@media (max-width: 565px) {
-    .title {
-        display: none;
-    }
+// width < 565px
+@media only screen and (max-width: 35.3125em) {
+	.title {
+		display: none;
+	}
 
-    .spacer {
-        display: block;
-        flex-grow: 1;
-    }
+	.spacer {
+		display: block;
+		flex-grow: 1;
+	}
 }

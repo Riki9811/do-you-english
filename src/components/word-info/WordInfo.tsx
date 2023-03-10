@@ -96,7 +96,7 @@ export default function WordInfo({ info: rawInfo, error, searchWord }: WordInfoP
 	function renderUrlArray(urls: string[], caption: string) {
 		return (
 			<div className={styles.sources}>
-				<span className={styles.spacer} />
+				<div className={styles.spacer} />
 				<p>{caption}</p>
 				<span>
 					{urls.map((url, index) => (

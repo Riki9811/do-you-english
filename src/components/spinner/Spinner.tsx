@@ -1,8 +1,13 @@
+import { HTMLAttributes } from "react";
 import styles from "./Spinner.module.scss";
 
-export default function Spinner() {
+interface SpinnerProps {
+    className?: string
+}
+
+export default function Spinner({ className: customClass = "" }: SpinnerProps) {
   return (
-    <div className={styles["spinner-container"]}>
+    <div className={`${customClass} ${styles["spinner-container"]}`}>
       <div className={styles["loading-spinner"]}></div>
     </div>
   );

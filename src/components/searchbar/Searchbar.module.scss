@@ -5,32 +5,37 @@
 	background: var(--background-alt-col);
 	padding: 0.75em 1.2em;
 	border-radius: 1em;
-	cursor: text;
 	font-size: 1.25em;
+	cursor: text;
+	position: relative;
 }
 
 .disabled {
-    cursor: not-allowed;
+	cursor: not-allowed;
 }
 
 .disabled * {
-    cursor: not-allowed;
+	cursor: not-allowed;
 }
 
 .search-input {
-    background: none;
+	background: none;
 	flex-grow: 1;
 }
 
 .search-input:focus-visible {
-    outline: none;
+	outline: none;
 }
 
 .search-icon {
-    cursor: pointer;
+	--size: 1.2em;
+
+	position: absolute;
+	cursor: pointer;
 	fill: var(--icon-accent-col);
-	width: 1.2em;
-	height: 1.2em;
+	width: var(--size);
+	height: var(--size);
+	right: var(--size);
 }
 
 ::placeholder {

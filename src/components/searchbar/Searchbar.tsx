@@ -44,7 +44,11 @@ export default function Searchbar(props: SearchbarProps) {
 				className={styles["search-input"]}
 				disabled={isLoading}
 			/>
-			{isLoading ? <Spinner /> : <Search className={styles["search-icon"]} onClick={submitSearh} />}
+			{isLoading ? (
+				<Spinner className={styles["search-icon"]} />
+			) : (
+				<Search className={styles["search-icon"]} onClick={submitSearh} />
+			)}
 		</form>
 	);
 }
