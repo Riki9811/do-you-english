@@ -25,9 +25,9 @@
     <br />
     <a href="https://do-you-english.vercel.app/">View Demo</a>
     ·
-    <a href="https://github.com/Riki9811/planets-info/issues">Report Bug</a>
+    <a href="https://github.com/Riki9811/do-you-english/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Riki9811/planets-info/issues">Request Feature</a>
+    <a href="https://github.com/Riki9811/do-you-english/issues">Request Feature</a>
     <br />
 </p>
 </div>
